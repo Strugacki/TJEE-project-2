@@ -13,8 +13,7 @@ public class SellProductServiceImpl implements SellProductService {
 	@PersistenceContext
 	EntityManager em;
 	
-	
-	@Override
+
 	public void sellProduct(Client client, Product product) {
 		
 		client = em.find(Client.class, client.getId());
@@ -24,7 +23,6 @@ public class SellProductServiceImpl implements SellProductService {
 		
 	}
 
-	@Override
 	public void disposeProduct(Client client, Product product) {
 
 		product = em.find(Product.class, product.getId());
@@ -45,7 +43,6 @@ public class SellProductServiceImpl implements SellProductService {
 	}
 		
 
-	@Override
 	public void complaintProduct(Client client, Product product) {
 		
 		client = em.find(Client.class, client.getId());

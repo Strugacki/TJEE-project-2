@@ -96,7 +96,7 @@
 	</dependencies>
 	
 	<build>
-		<finalName>Skateshop Online</finalName>
+		<finalName>EJB</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>

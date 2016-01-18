@@ -1,38 +1,31 @@
 package com.mhallman.EJB.domain;
 
 import javax.persistence.Entity;
-import javax.persistence.Table;
-import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.validation.constraints.Size;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 
-@SuppressWarnings("serial")
 @Entity
 @NamedQueries({
-	@NamedQuery(name = "getAllProducts", query = "Select p from PRODUCT p"),
-	@NamedQuery(name = "getProductByBrandName", query = "Select p from PRODUCT p Where p.BRAND_NAME=?"),
-	@NamedQuery(name = "getAvailableProducts", query = "Select p from PRODUCT p Where p.AVAILABLE=true"),
+	@NamedQuery(name = "getAllProducts", query = "Select p from Product p"),
+	//@NamedQuery(name = "getProductByBrandName", query = "Select p from Product p Where p.brandName= ? "),
+	@NamedQuery(name = "getAvailableProducts", query = "Select p from Product p Where p.available=true"),
 })
 public class Product{
 
 	@Id
-	@Column(name="ID")
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	
-	@Column(name="PRODUCT_NAME")
 	private String productName;
 	
-	@Column(name="BRAND_NAME")
 	private String brandName;
 	
-	@Column(name="PRICE")
 	private double price;
 	
-	@Column(name="AVAILABLE")
 	private boolean available;
 
 	
@@ -67,6 +60,7 @@ public class Product{
 	/**
 	 * @return the productName
 	 */
+	@Size(min=2, max=50)
 	public String getProductName() {
 		return productName;
 	}
@@ -81,6 +75,7 @@ public class Product{
 	/**
 	 * @return the brandName
 	 */
+	@Size(min=2, max=20)
 	public String getBrandName() {
 		return brandName;
 	}
@@ -95,6 +90,7 @@ public class Product{
 	/**
 	 * @return the price
 	 */
+	@Size(max=10000)
 	public double getPrice() {
 		return price;
 	}

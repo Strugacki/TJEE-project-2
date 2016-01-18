@@ -20,21 +20,19 @@ public class ClientServiceImpl implements ClientService {
 	/**
 	 * Add client method
 	 */
-	@Override
 	public void addClient(Client client) {
+		client.setId(null);
 		em.persist(client);
 	}
 
 	/**
 	 * Delete client method
 	 */
-	@Override
 	public void deleteClient(Client client) {
 		client = em.find(Client.class, client.getId());
 		em.remove(client);
 	}
 
-	@Override
 	public void updateClient(Client client) {
 		
 	}
@@ -44,7 +42,6 @@ public class ClientServiceImpl implements ClientService {
 	 * returns List<Clients>
 	 */
 	@SuppressWarnings("unchecked")
-	@Override
 	public List<Client> getAllClients() {
 		return em.createNamedQuery("getAllClients").getResultList();
 	}
@@ -53,7 +50,6 @@ public class ClientServiceImpl implements ClientService {
 	 * Get client method
 	 * returns client with id from argument
 	 */
-	@Override
 	public Client getClientById(Integer id) {
 		return em.find(Client.class, id);
 	}
@@ -61,9 +57,9 @@ public class ClientServiceImpl implements ClientService {
 	/**
 	 * TO DO
 	 */
-	@Override
 	public Client getClientByPhone(String phone) {
-		return (Client) em.createNamedQuery("getByPhone").setParameter(0, phone).getResultList().get(0);
+		//(Client) em.createNamedQuery("getByPhone").setParameter(0, phone).getResultList().get(0)
+		return null;
 	}
 
 	
@@ -71,7 +67,6 @@ public class ClientServiceImpl implements ClientService {
 	 * Get products method
 	 * returns List<Products>
 	 */
-	@Override
 	public List<Product> getBoughtProducts(Client client) {
 		client = em.find(Client.class, client.getId());
 		List<Product> products = new ArrayList<Product>(client.getProducts());

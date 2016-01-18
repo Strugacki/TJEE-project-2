@@ -18,6 +18,7 @@ public class ProductServiceImpl implements ProductService {
 	 * Add product method
 	 */
 	public void addProduct(Product product){
+		product.setId(null);
 		em.persist(product);
 	}
 	
@@ -51,7 +52,6 @@ public class ProductServiceImpl implements ProductService {
 	 * Update product method
 	 * params @product @productName @brandName @price @isAvailable 
 	 */
-	@Override
 	public void updateProduct(Product product, String productName, String brandName, Double price, Boolean isAvailable) {
 		product = em.find(Product.class, product.getId());
 		product.setProductName(productName);
@@ -64,7 +64,6 @@ public class ProductServiceImpl implements ProductService {
 	/**
 	 * returns product with @id 
 	 */
-	@Override
 	public Product getProductById(Integer id) {
 		return em.find(Product.class, id);
 	}

@@ -1,12 +1,10 @@
 package com.mhallman.EJB.domain;
 
 import javax.persistence.CascadeType;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-import javax.persistence.Table;
 import javax.validation.constraints.Size;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
@@ -16,26 +14,21 @@ import javax.persistence.OneToMany;
 import java.util.ArrayList;
 import java.util.List;
 
-@SuppressWarnings("serial")
 @Entity
 @NamedQueries({
-	@NamedQuery(name = "getAllClients", query = "Select c from CLIENT c"),
-	@NamedQuery(name = "getByPhone", query = "Select c from CLIENT c Where c.PHONE_NUMBER=?"),
+	@NamedQuery(name = "getAllClients", query = "Select c from Client c"),
+	//@NamedQuery(name = "getByPhone", query = "Select c from Client c Where c.phoneNumber=?"),
 })
 public class Client{
 	
 	@Id
-	@Column(name = "Id")
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	
-	@Column(name = "FIRST_NAME")
 	private String firstName;
 	
-	@Column(name = "LAST_NAME") 
 	private String lastName;
 	
-	@Column(name = "PHONE_NUMBER")
 	private String phoneNumber;
 	
 	private List<Product> products = new ArrayList<Product>();
