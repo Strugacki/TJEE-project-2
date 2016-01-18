@@ -11,7 +11,6 @@ import javax.persistence.GenerationType;
 
 @SuppressWarnings("serial")
 @Entity
-@Table(name="PRODUCT")
 @NamedQueries({
 	@NamedQuery(name = "getAllProducts", query = "Select p from PRODUCT p"),
 	@NamedQuery(name = "getProductByBrandName", query = "Select p from PRODUCT p Where p.BRAND_NAME=?"),

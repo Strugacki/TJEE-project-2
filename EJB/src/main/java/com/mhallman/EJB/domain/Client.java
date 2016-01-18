@@ -18,7 +18,6 @@ import java.util.List;
 
 @SuppressWarnings("serial")
 @Entity
-@Table(name = "CLIENT")
 @NamedQueries({
 	@NamedQuery(name = "getAllClients", query = "Select c from CLIENT c"),
 	@NamedQuery(name = "getByPhone", query = "Select c from CLIENT c Where c.PHONE_NUMBER=?"),
