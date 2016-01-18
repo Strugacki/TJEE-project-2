@@ -1,11 +1,13 @@
 package com.mhallman.EJB.service;
 
+import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import com.mhallman.EJB.domain.Client;
 import com.mhallman.EJB.domain.Product;
 
+@Stateless
 public class SellProductServiceImpl implements SellProductService {
 
 	@PersistenceContext

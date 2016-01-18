@@ -1,8 +1,8 @@
 #!/bin/sh
 
 echo "************ UNDEPLOYING *******************"
-asadmin undeploy EJB
+./scripts/glassfish3/glassfish/bin/asadmin undeploy EJB
 echo "************ BUILDING **********************"
 mvn package
 echo "************ DEPLOYING *********************"
-asadmin deploy target/EJB.war
+./scripts/glassfish3/glassfish/bin/asadmin deploy target/EJB.war

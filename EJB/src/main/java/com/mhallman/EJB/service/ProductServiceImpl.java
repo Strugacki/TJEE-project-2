@@ -14,36 +14,59 @@ public class ProductServiceImpl implements ProductService {
 	@PersistenceContext
 	private EntityManager em;
 	
-	
+	/**
+	 * Add product method
+	 */
 	public void addProduct(Product product){
 		em.persist(product);
 	}
 	
+	/**
+	 * Delete product method
+	 */
 	public void deleteProduct(Product product){
 		product = em.find(Product.class, product.getId());
 		em.remove(product);
 	}
 	
+	/**
+	 * Get product method
+	 * returns List<Product>
+	 */
 	@SuppressWarnings("unchecked")
 	public List<Product> getAllProducts(){
 		return em.createNamedQuery("getAllProducts").getResultList();
 	}
 	
+	/**
+	 * Get available product method
+	 * returns List<Product> with available products
+	 */
 	@SuppressWarnings("unchecked")
 	public List<Product> getAvailableProducts(){
 		return em.createNamedQuery("getAvailableProducts").getResultList();
 	}
 
+	/**
+	 * Update product method
+	 * params @product @productName @brandName @price @isAvailable 
+	 */
 	@Override
-	public void updateProduct(Product product) {
-		// TODO Auto-generated method stub
+	public void updateProduct(Product product, String productName, String brandName, Double price, Boolean isAvailable) {
+		product = em.find(Product.class, product.getId());
+		product.setProductName(productName);
+		product.setBrandName(brandName);
+		product.setAvailable(isAvailable);
+		em.merge(product);
 		
 	}
 
+	/**
+	 * returns product with @id 
+	 */
 	@Override
 	public Product getProductById(Integer id) {
-		// TODO Auto-generated method stub
-		return null;
+		return em.find(Product.class, id);
 	}
 	
 }

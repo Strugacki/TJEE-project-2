@@ -8,7 +8,7 @@ public interface ProductService {
 
 	void addProduct(Product product);
 	void deleteProduct(Product product);
-	void updateProduct(Product product);
+	void updateProduct(Product product, String productName, String brandName, Double price, Boolean isAvailable);
 	List<Product> getAllProducts();
 	Product getProductById(Integer id);
 	List<Product> getAvailableProducts();
