@@ -9,7 +9,7 @@ import javax.persistence.PersistenceContext;
 import com.mhallman.EJB.domain.Product;
 
 @Stateless
-public class ProductServiceImpl {
+public class ProductServiceImpl implements ProductService {
 
 	@PersistenceContext
 	private EntityManager em;
@@ -32,6 +32,18 @@ public class ProductServiceImpl {
 	@SuppressWarnings("unchecked")
 	public List<Product> getAvailableProducts(){
 		return em.createNamedQuery("getAvailableProducts").getResultList();
+	}
+
+	@Override
+	public void updateProduct(Product product) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Product getProductById(Integer id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 }
