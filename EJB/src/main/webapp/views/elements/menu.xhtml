@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+	  <div>
+	   <h:form>
+        <b:navBar brand="Skateshop Horyzont" brandHref="#" inverse="true" fixed="top">
+            <b:navbarLinks>
+                <b:dropMenu value="Clients">
+                    <b:navLink header="Client Service"></b:navLink>
+                    <b:navLink value="Add client" href="#{request.contextPath}/views/Client/addClient.jsf"></b:navLink>
+                    <b:navLink value="Show all clients" href="#{request.contextPath}/views/Client/showClients.jsf"></b:navLink>
+                </b:dropMenu>
+                 <b:dropMenu value="Product">
+                    <b:navLink header="Product Service"></b:navLink>
+                    <b:navLink value="Add product" href="#{request.contextPath}/views/Product/addProduct.jsf"></b:navLink>
+                </b:dropMenu>        
+            </b:navbarLinks>
+        </b:navBar>
+        </h:form>
+        </div>
+</ui:composition>

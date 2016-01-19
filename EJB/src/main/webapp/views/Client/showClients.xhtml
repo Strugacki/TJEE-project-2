@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/templates/default.xhtml"
+	xmlns:b="http://bootsfaces.net/ui"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich">
+
+	<ui:define name="content" cellpadding="5">
+	 <h:body style="padding-top: 50px; padding-bottom: 20px;">
+		<h:form>
+		  
+			<h:dataTable value="#{clientBean.allClients}" var="item">
+				<f:facet name="header">#{msg.clientAllLabel}</f:facet>
+				<h:column>
+					<f:facet name="header">#{msg.clientFirstNameLabel}</f:facet>
+					<h:outputText value="#{item.firstName}" />
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">#{msg.space}</f:facet> 
+					<h:outputText value="   " />
+				</h:column>
+
+
+				<h:column>
+					<f:facet name="header">#{msg.clientLastNameLabel}</f:facet>
+					<h:outputText value="#{item.lastName}" />
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">#{msg.space}</f:facet> 
+					<h:outputText value="   " />
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">#{msg.clientPhoneNumberLabel}</f:facet>
+					<h:outputText value="#{item.phoneNumber}" />
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">#{msg.space}</f:facet> 
+					<h:outputText value="   " />
+				</h:column>
+
+
+				<h:column>
+					<f:facet name="header">#{msg.action}</f:facet>
+					<h:commandLink value="Delete client"
+						action="#{clientBean.deleteClients}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">#{msg.action}</f:facet>
+					<h:commandLink value=" Details " action="#{clientBean.showDetails}"/>
+				</h:column>
+
+			</h:dataTable>
+
+		</h:form>
+	</h:body>
+
+	</ui:define>
+</ui:composition>

@@ -12,12 +12,15 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.validation.constraints.Size;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 
 
 @Entity
-@NamedQuery(name = "client.all", query = "Select c from Client c")
+@NamedQueries({
+	@NamedQuery(name = "client.all", query = "Select c from Client c")
+})
 public class Client{
 	
 	

@@ -88,4 +88,13 @@ public class ClientFormBean implements Serializable {
 		return null;
 	}
 	
+	/**
+	 * 
+	 * @return
+	 */
+	public String showDetails() {
+		clientToShow = clients.getRowData();
+		return "details";
+	}
+	
 }

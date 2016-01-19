@@ -1,10 +1,27 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:b="http://bootsfaces.net/ui"
 	template="/templates/default.xhtml">
+	
 	<ui:define name="content">
-		<p>#{msg.applicationInfo}</p>
+	    <h:head>
+	        <title>Skateshop online</title>
+	        <meta name="author" content="Mhallman @Strugacki"></meta>
+   		 </h:head>
+   		 <h:body>
+       
+        <b:jumbotron>
+            <b:container>
+                <h1>Skateshop Horyzont</h1>
+                <p>Pay less save cash</p>
+            </b:container>
+        </b:jumbotron>
+    </h:body>
+		
 	</ui:define>
+	
 </ui:composition>

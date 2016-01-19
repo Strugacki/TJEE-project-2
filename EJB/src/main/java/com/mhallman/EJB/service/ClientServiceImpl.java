@@ -43,7 +43,7 @@ public class ClientServiceImpl implements ClientService {
 	 */
 	@SuppressWarnings("unchecked")
 	public List<Client> getAllClients() {
-		return em.createNamedQuery("getAllClients").getResultList();
+		return em.createNamedQuery("client.all").getResultList();
 	}
 
 	/**
