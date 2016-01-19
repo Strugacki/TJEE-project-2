@@ -12,6 +12,7 @@ import com.mhallman.EJB.domain.Client;
 import com.mhallman.EJB.domain.Product;
 import com.mhallman.EJB.service.ClientService;
 import com.mhallman.EJB.service.ProductService;
+import com.mhallman.EJB.service.SellProductService;
 
 @SessionScoped
 @Named("clientBean")
@@ -26,7 +27,13 @@ public class ClientFormBean implements Serializable {
 	private ListDataModel<Product> soldProducts = new ListDataModel<Product>();
 	
 	@Inject
+	private SellProductService ss;
+	
+	@Inject 
 	private ClientService cs;
+	
+	@Inject
+	private ProductService ps;
 	
 	/**
 	 * 
@@ -57,7 +64,7 @@ public class ClientFormBean implements Serializable {
 	 * 
 	 * @return
 	 */
-	public ListDataModel<Product> getSoldProducts() {
+	public ListDataModel<Product> getBoughtProducts() {
 		soldProducts.setWrappedData(cs.getBoughtProducts(client));
 		return soldProducts;
 	}

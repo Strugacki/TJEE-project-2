@@ -1,5 +1,10 @@
 package com.mhallman.EJB.domain;
 
+import com.mhallman.EJB.domain.Product;
+import java.util.ArrayList;
+import java.util.List;
+
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -7,23 +12,16 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.validation.constraints.Size;
 import javax.persistence.Id;
-import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 
-import com.mhallman.EJB.domain.Product;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
-@NamedQueries({
-	@NamedQuery(name = "client.all", query = "Select c from Client c"),
-})
+@NamedQuery(name = "client.all", query = "Select c from Client c")
 public class Client{
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer id;
+	
+	private Long id;
 	
 	private String firstName;
 	
@@ -46,24 +44,27 @@ public class Client{
 	 * @param lastName
 	 * @param phoneNumber
 	 */
-	public Client(String firstName, String lastName, String phoneNumber){
+	public Client(String firstName, String lastName, String phoneNumber, List<Product> products){
 		super();
 		this.firstName=firstName;
 		this.lastName=lastName;
 		this.phoneNumber=phoneNumber;
+		this.products=products;
 	}
 	
 	/**
 	 * @return the id
 	 */
-	public Integer getId() {
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	public Long getId() {
 		return id;
 	}
 
 	/**
 	 * @param id the id to set
 	 */
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

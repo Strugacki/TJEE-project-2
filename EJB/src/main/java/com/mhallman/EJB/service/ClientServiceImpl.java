@@ -63,7 +63,7 @@ public class ClientServiceImpl implements ClientService {
 	public List<Product> getBoughtProducts(Client client) {
 		client = em.find(Client.class, client.getId());
 		List<Product> products = new ArrayList<Product>(client.getProducts());
-		return null;
+		return products;
 	}
 
 }

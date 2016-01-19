@@ -9,6 +9,8 @@ import javax.inject.Named;
 
 import com.mhallman.EJB.domain.Client;
 import com.mhallman.EJB.domain.Product;
+import com.mhallman.EJB.service.ClientService;
+import com.mhallman.EJB.service.ProductService;
 import com.mhallman.EJB.service.SellProductService;
 
 
@@ -20,6 +22,14 @@ public class PurchaseFormBean implements Serializable {
 
 	@Inject
 	private SellProductService ss;
+	
+	@Inject 
+	private ClientService cs;
+	
+	@Inject
+	private ProductService ps;
+	
+	
 
 	public String sellProduct(Client client, Product product) {
 		ss.sellProduct(client, product);;

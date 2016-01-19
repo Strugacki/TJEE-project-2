@@ -15,13 +15,14 @@
 		<!-- <jta-data-source>java:/DefaultDS</jta-data-source> -->
 		
 		<!-- Use this data source name for Glassfish -->
-		<!--  <jta-data-source>jdbc/__default</jta-data-source> -->
-
+		<!-- <jta-data-source>jdbc/__default</jta-data-source>!-->
+		
+		
 		<jta-data-source>jdbc/demoapps</jta-data-source>
 		
 		<properties>
 			<!-- Properties for Hibernate (default provider for JBoss AS) -->
-			<property name="hibernate.hbm2ddl.auto" value="create-drop" />
+			<property name="hibernate.hbm2ddl.auto" value="update" />
 			<property name="hibernate.show_sql" value="true" />
 			<property name="hibernate.transaction.flush_before_completion"
 				value="true" />

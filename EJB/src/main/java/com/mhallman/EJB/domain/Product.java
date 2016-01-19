@@ -12,13 +12,11 @@ import javax.persistence.GenerationType;
 @Entity
 @NamedQueries({
 	@NamedQuery(name = "product.all", query = "Select p from Product p"),
-	@NamedQuery(name = "product.available", query = "Select p from Product p where p.available=true"),
+	@NamedQuery(name = "product.available", query = "Select pp from Product pp where pp.available = true"),
 })
 public class Product{
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer id;
+	private Long id;
 	
 	private String productName;
 	
@@ -26,7 +24,7 @@ public class Product{
 	
 	private double price;
 	
-	private boolean available;
+	private Boolean available;
 
 	
 	
@@ -46,14 +44,16 @@ public class Product{
 	/**
 	 * @return the id
 	 */
-	public Integer getId() {
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	public Long getId() {
 		return id;
 	}
 
 	/**
 	 * @param id the id to set
 	 */
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
