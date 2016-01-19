@@ -2,6 +2,7 @@ package com.mhallman.EJB.service;
 
 import java.util.List;
 
+import com.mhallman.EJB.domain.Client;
 import com.mhallman.EJB.domain.Product;
 
 public interface ProductService {
@@ -12,5 +13,9 @@ public interface ProductService {
 	List<Product> getAllProducts();
 	Product getProductById(Integer id);
 	List<Product> getAvailableProducts();
+	
+	void sellProduct(long clientId, long productId);
+	void disposeProduct(Client client, Product product);
+	void complaintProduct(Client client, Product product);
 	
 }

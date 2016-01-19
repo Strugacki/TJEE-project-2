@@ -2,6 +2,7 @@ package com.mhallman.EJB.web;
 
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.enterprise.context.SessionScoped;
 import javax.faces.model.ListDataModel;
@@ -26,9 +27,6 @@ public class ProductFormBean implements Serializable {
 	
 	private ListDataModel<Product> soldProducts = new ListDataModel<Product>();
 	
-	@Inject
-	private SellProductService ss;
-	
 	@Inject 
 	private ClientService cs;
 	
@@ -36,10 +34,36 @@ public class ProductFormBean implements Serializable {
 	private ProductService ps;
 	
 	
-	private String productName;
-	private String brandName;
-	private Double price;
-	private Boolean available;
+	private long clientId;
+	private long productId;
+	/**
+	 * @return the clientId
+	 */
+	public long getClientId() {
+		return clientId;
+	}
+
+	/**
+	 * @param clientId the clientId to set
+	 */
+	public void setClientId(long clientId) {
+		this.clientId = clientId;
+	}
+
+	/**
+	 * @return the productId
+	 */
+	public long getProductId() {
+		return productId;
+	}
+
+	/**
+	 * @param productId the productId to set
+	 */
+	public void setProductId(long productId) {
+		this.productId = productId;
+	}
+
 	/**
 	 * 
 	 * @return
@@ -48,6 +72,9 @@ public class ProductFormBean implements Serializable {
 		return product;
 	}
 
+	public List<Client> getAllClients(){
+		return cs.getAllClients();
+	}
 	/**
 	 * 
 	 * @param client
@@ -103,6 +130,15 @@ public class ProductFormBean implements Serializable {
 	public String updateProduct() {
 		ps.updateProduct(product);
 		return "showTerminals";
+	}
+	
+	public String sellProduct(){
+		ps.sellProduct(clientId, productId);
+		return null;
+	}
+	
+	public List<Product> getAvailableProducts(){
+		return ps.getAvailableProducts();
 	}
 	
 	

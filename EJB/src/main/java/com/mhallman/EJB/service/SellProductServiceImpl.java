@@ -1,5 +1,7 @@
 package com.mhallman.EJB.service;
 
+import java.util.List;
+
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -55,6 +57,11 @@ public class SellProductServiceImpl implements SellProductService {
 				break;
 			}
 		}
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Client> getAllClients() {
+		return em.createNamedQuery("client.all").getResultList();
 	}
 
 }

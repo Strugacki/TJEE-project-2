@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/templates/default.xhtml"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich">
+
+	<ui:define name="content">
+		<h:form id="productForm">
+		 <h:body style="padding-top: 50px; padding-bottom: 20px;">
+			<h:panelGrid columns="2">
+
+				<h:outputText value=" Client " />
+				<h:selectOneMenu value="#{productBean.clientId}">
+					<f:selectItems value="#{productBean.allClients}" var="client"
+						itemValue="#{client.id}" itemLabel="#{client.firstName} #{client.lastName}" />
+				</h:selectOneMenu>
+
+				<h:outputText value="Product" />
+				<h:selectOneMenu value="#{productBean.productId}">
+					<f:selectItems value="#{productBean.availableProducts}" var="product"
+						itemValue="#{product.id}" itemLabel="#{product.productName} #{product.brandName}" />
+				</h:selectOneMenu>
+
+
+			</h:panelGrid>
+
+			<h:commandButton value="Sell" action="#{productBean.sellProduct}" />
+
+			<h:panelGrid>
+				<h:messages id="messages" showDetail="#{true}"
+					showSummary="#{false}" />
+			</h:panelGrid>
+		</h:body>
+		</h:form>
+
+	</ui:define>
+</ui:composition>
