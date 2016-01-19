@@ -24,7 +24,7 @@ public class Product{
 	
 	private double price;
 	
-	private Boolean available;
+	private Boolean available = true;
 
 	
 	
@@ -32,12 +32,12 @@ public class Product{
 		
 	}
 	
-	public Product(String productName, String brandName, Double price){
+	public Product(String productName, String brandName, Double price, Boolean available){
 		super();
 		this.productName=productName;
 		this.brandName=brandName;
 		this.price=price;
-		this.available=true;
+		this.available=available;
 	}
 	
 	
@@ -105,7 +105,7 @@ public class Product{
 	/**
 	 * @return the available
 	 */
-	public boolean isAvailable() {
+	public boolean getAvailable() {
 		return available;
 	}
 

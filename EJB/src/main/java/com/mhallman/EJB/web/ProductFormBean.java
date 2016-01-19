@@ -34,6 +34,12 @@ public class ProductFormBean implements Serializable {
 	
 	@Inject
 	private ProductService ps;
+	
+	
+	private String productName;
+	private String brandName;
+	private Double price;
+	private Boolean available;
 	/**
 	 * 
 	 * @return
@@ -78,5 +84,26 @@ public class ProductFormBean implements Serializable {
 		ps.deleteProduct(productToDelete);
 		return null;
 	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public String showDetails() {
+		productToShow = products.getRowData();
+		return "details";
+	}
+	
+	public String prepareUpdate(){
+		product = products.getRowData();
+		ps.updateProduct(product);
+		return "prepareUpdate";
+	}
+	
+	public String updateProduct() {
+		ps.updateProduct(product);
+		return "showTerminals";
+	}
+	
 	
 }

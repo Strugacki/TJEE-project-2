@@ -50,13 +50,9 @@ public class ProductServiceImpl implements ProductService {
 
 	/**
 	 * Update product method
-	 * params @product @productName @brandName @price @isAvailable 
+	 * params @product
 	 */
-	public void updateProduct(Product product, String productName, String brandName, Double price, Boolean isAvailable) {
-		product = em.find(Product.class, product.getId());
-		product.setProductName(productName);
-		product.setBrandName(brandName);
-		product.setAvailable(isAvailable);
+	public void updateProduct(Product product) {
 		em.merge(product);
 		
 	}

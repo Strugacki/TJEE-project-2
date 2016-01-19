@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/templates/default.xhtml"
+	xmlns:b="http://bootsfaces.net/ui"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich">
+
+	<ui:define name="content" cellpadding="5">
+	 <h:body style="padding-top: 50px; padding-bottom: 20px;">
+		<h:form>
+		
+			<h:dataTable value="#{productBean.allProducts}" var="item">
+				<f:facet name="header">#{msg.productAllLabel}</f:facet>
+				<h:column>
+					<f:facet name="header">#{msg.productNameLabel}</f:facet>
+					<h:outputText value="#{item.productName}" />
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">#{msg.productBrandNameLabel}</f:facet>
+					<h:outputText value="#{item.brandName}" />
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">#{msg.productPriceLabel}</f:facet>
+					<h:outputText value="#{item.price}" />
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">#{msg.action}</f:facet>
+					<h:commandLink value="#{msg.actionDelete}"
+						action="#{productBean.deleteProduct}" />
+					<h:commandLink value=" Details " action="#{productBean.showDetails}"/>
+					<h:commandButton value ="#{msg.actionUpdate}" action="#{productBean.prepareUpdate}" />
+				</h:column>
+
+			</h:dataTable>
+
+		</h:form>
+	</h:body>
+
+	</ui:define>
+</ui:composition>
