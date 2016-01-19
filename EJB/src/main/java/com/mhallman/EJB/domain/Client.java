@@ -11,13 +11,13 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 
+import com.mhallman.EJB.domain.Product;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @NamedQueries({
-	@NamedQuery(name = "getAllClients", query = "Select c from Client c"),
-	//@NamedQuery(name = "getByPhone", query = "Select c from Client c Where c.phoneNumber=?"),
+	@NamedQuery(name = "client.all", query = "Select c from Client c"),
 })
 public class Client{
 	

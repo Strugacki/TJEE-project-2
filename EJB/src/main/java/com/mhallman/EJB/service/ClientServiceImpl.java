@@ -33,9 +33,9 @@ public class ClientServiceImpl implements ClientService {
 		em.remove(client);
 	}
 
-	public void updateClient(Client client) {
+	/*public void updateClient(Client client) {
 		
-	}
+	}*/
 
 	/**
 	 * Get all client method
@@ -54,13 +54,6 @@ public class ClientServiceImpl implements ClientService {
 		return em.find(Client.class, id);
 	}
 	
-	/**
-	 * TO DO
-	 */
-	public Client getClientByPhone(String phone) {
-		//(Client) em.createNamedQuery("getByPhone").setParameter(0, phone).getResultList().get(0)
-		return null;
-	}
 
 	
 	/**

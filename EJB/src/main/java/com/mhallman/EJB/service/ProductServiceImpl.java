@@ -36,7 +36,7 @@ public class ProductServiceImpl implements ProductService {
 	 */
 	@SuppressWarnings("unchecked")
 	public List<Product> getAllProducts(){
-		return em.createNamedQuery("getAllProducts").getResultList();
+		return em.createNamedQuery("product.all").getResultList();
 	}
 	
 	/**
@@ -45,7 +45,7 @@ public class ProductServiceImpl implements ProductService {
 	 */
 	@SuppressWarnings("unchecked")
 	public List<Product> getAvailableProducts(){
-		return em.createNamedQuery("getAvailableProducts").getResultList();
+		return em.createNamedQuery("product.available").getResultList();
 	}
 
 	/**

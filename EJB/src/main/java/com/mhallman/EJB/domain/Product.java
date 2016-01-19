@@ -4,15 +4,15 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.validation.constraints.Max;
 import javax.validation.constraints.Size;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 
 @Entity
 @NamedQueries({
-	@NamedQuery(name = "getAllProducts", query = "Select p from Product p"),
-	//@NamedQuery(name = "getProductByBrandName", query = "Select p from Product p Where p.brandName= ? "),
-	@NamedQuery(name = "getAvailableProducts", query = "Select p from Product p Where p.available=true"),
+	@NamedQuery(name = "product.all", query = "Select p from Product p"),
+	@NamedQuery(name = "product.available", query = "Select p from Product p where p.available=true"),
 })
 public class Product{
 
@@ -90,7 +90,7 @@ public class Product{
 	/**
 	 * @return the price
 	 */
-	@Size(max=10000)
+	@Max(10000)
 	public double getPrice() {
 		return price;
 	}
