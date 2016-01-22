@@ -11,6 +11,6 @@ public interface ClientService {
 	void deleteClient(Client client);
 	//void updateClient(Client client);
 	List<Client> getAllClients();
-	Client getClientById(Integer id);
+	Client getClientById(long id);
 	List<Product> getBoughtProducts(Client client);
 }

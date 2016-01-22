@@ -50,7 +50,7 @@ public class ClientServiceImpl implements ClientService {
 	 * Get client method
 	 * returns client with id from argument
 	 */
-	public Client getClientById(Integer id) {
+	public Client getClientById(long id) {
 		return em.find(Client.class, id);
 	}
 	

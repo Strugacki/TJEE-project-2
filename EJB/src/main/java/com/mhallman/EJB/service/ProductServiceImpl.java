@@ -61,7 +61,7 @@ public class ProductServiceImpl implements ProductService {
 	/**
 	 * returns product with @id 
 	 */
-	public Product getProductById(Integer id) {
+	public Product getProductById(long id) {
 		return em.find(Product.class, id);
 	}
 	
