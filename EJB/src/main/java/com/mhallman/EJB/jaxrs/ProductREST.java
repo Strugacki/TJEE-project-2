@@ -30,7 +30,7 @@ public class ProductREST {
 	private ProductService ps;
 	
 	@GET
-	@Path("/getAll")
+	@Path("/all")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Product> getAll(){
 		
@@ -50,6 +50,7 @@ public class ProductREST {
 		product.setProductName(productName);
 		product.setBrandName(brandName);
 		product.setPrice(price);
+		product.setAvailable(true);
 		
 		ps.addProduct(product);
 		

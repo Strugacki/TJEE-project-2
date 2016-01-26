@@ -4,6 +4,8 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
+	<link href="${pageContext.request.contextPath}/views/elements/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="${pageContext.request.contextPath}/views/elements/bootstrap/css/jquery-ui.css" rel="stylesheet">
 	<script>
 		$(document).ready(function()
 				{		
@@ -24,6 +26,10 @@
 									    tr.append("<td>"+data[i].lastName+"</td>");
 									    tr.append("<td>"+data[i].phoneNumber+"</td>");
 									    td = $('<td/>');
+									    td.append(
+"<a href='${pageContext.request.contextPath}/PodgladTrumna/"+data[i].id+"' class='btn btn-xs btn-warning' role='button'> Podgląd </a> "+
+"<a href='${pageContext.request.contextPath}/EdytujTrumne/"+dane[i].id+"' class='btn btn-xs btn-primary' role='button'>Edytuj</a> "+
+"<button id="+dane[i].id+" onClick='usun("+dane[i].id+")' type='submit' class='btn btn-xs btn-danger'>Usuń</button>");
 									    tr.append(td);
 									    $(table).append(tr);
 								}

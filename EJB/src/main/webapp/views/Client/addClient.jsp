@@ -4,6 +4,8 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
+	<link href="${pageContext.request.contextPath}/elements/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="${pageContext.request.contextPath}/elements/bootstrap/css/jquery-ui.css" rel="stylesheet">
 	<script>
 		$(document).ready(function()
 			{
